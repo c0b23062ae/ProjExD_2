@@ -100,7 +100,6 @@ def main():
             angle = -45    # 左上
         if sum_mv == [-5, +5]:
             angle = 45      # 左下
-
         if sum_mv == [0, -5]:
             angle = -90     # 上
         if sum_mv == [+5, -5]:
