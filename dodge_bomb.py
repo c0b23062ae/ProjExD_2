@@ -49,6 +49,8 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: 
                 return
+        if kk_rct.colliderect(bb_rct):
+            return # ゲームオーバー
         screen.blit(bg_img, [0, 0])             # 背景画像を貼り付ける
 
         key_lst = pg.key.get_pressed()          # 押されてるキーを取得
@@ -57,7 +59,8 @@ def main():
             if key_lst[k]:
                 sum_mv[0] += v[0]
                 sum_mv[1] += v[1]
-        kk_rct.move_ip(sum_mv)          # どのくらい現在地から動くか
+
+        kk_rct.move_ip(sum_mv)          
         if check_bound(kk_rct) != (True, True):
             kk_rct.move_ip(-sum_mv[0], -sum_mv[1])
         screen.blit(kk_img, kk_rct)
